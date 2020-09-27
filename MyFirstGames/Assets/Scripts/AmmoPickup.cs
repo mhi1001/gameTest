@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
+    public AudioSource AmmoPickupSound;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
+    AmmoPickupSound.Play();
+
+    if (GlobalAmmo.LoadedAmmo <= 0)
+    {
+        GlobalAmmo.LoadedAmmo += 10;
+        this.gameObject.SetActive(false);
+    }
+    else
+    {
         GlobalAmmo.CurrentAmmo += 10;
         this.gameObject.SetActive(false);
+    }
+
     }
 
     void Start()

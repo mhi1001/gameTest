@@ -12,7 +12,7 @@ public class GunFire : MonoBehaviour //This GunFire is the name of your C# file!
             AudioSource gunsound = GetComponent<AudioSource>();
             gunsound.Play();
             GetComponent<Animation>().Play("GunShot");
-            GlobalAmmo.CurrentAmmo--;
+            GlobalAmmo.LoadedAmmo--;
         }
     }
 }
